@@ -1,15 +1,14 @@
 {
   "name": "Monster Hunter: World",
-  "description": "Monster Hunter: World ist ein Action-Rollenspiel von Capcom und der fünfte Hauptteil der Monster-Hunter-Reihe.\nSpieler jagen riesige Kreaturen in einer offenen Welt, sammeln Ressourcen und verbessern ihre Ausrüstung, um sich immer stärkeren Herausforderungen zu stellen.",
   "questions": [
     {
       "id": 1,
-      "question1": "Welches Monster wurde bekannt als der schwerste Anfängerboss?",
+      "question1": "Welcher Boss wurde bekannt als das schwerste Anfängermonster da viel an ihm das erste mal gescheitert sind?",
       "answers":  [
         { "text":  "Anjanath", "correct":  true },
         { "text":  "Groß Jagras", "correct":  false },
         { "text":  "Barroth", "correct":  false },
-        { "text":  "Rathalos", "correct":  false }
+        { "text":  "Pukei-Pukei", "correct":  false }
       ]
     },
     {

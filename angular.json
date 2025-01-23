@@ -18,8 +18,8 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/pixel-brain",
-            "index": "Frontend/src/index.html",
-            "browser": "Frontend/src/main.ts",
+            "index": "Components/src/index.html",
+            "browser": "Components/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -32,10 +32,10 @@
               }
             ],
             "styles": [
-              "Frontend/src/styles.less"
+              "Components/src/styles.less"
             ],
             "scripts": [],
-            "server": "Frontend/src/main.server.ts",
+            "server": "Components/src/main.server.ts",
             "prerender": true,
             "ssr": {
               "entry": "server.ts"
@@ -96,7 +96,7 @@
               }
             ],
             "styles": [
-              "Frontend/src/styles.less"
+              "Components/src/styles.less"
             ],
             "scripts": []
           }

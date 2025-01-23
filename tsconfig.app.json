@@ -9,11 +9,11 @@
     ]
   },
   "files": [
-    "Frontend/src/main.ts",
-    "Frontend/src/main.server.ts",
+    "Components/src/main.ts",
+    "Components/src/main.server.ts",
     "server.ts"
   ],
   "include": [
-    "Frontend/src/**/*.d.ts"
+    "Components/src/**/*.d.ts"
   ]
 }
