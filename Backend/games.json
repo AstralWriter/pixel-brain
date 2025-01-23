@@ -1,0 +1,12 @@
+{
+  "games": [
+    {
+    "id": 1,
+    "name": "Monster Hunter World"
+    },
+    {
+      "id": 2,
+      "name": "ARK Survival Evolved"
+    }
+  ]
+}
