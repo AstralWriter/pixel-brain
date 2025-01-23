@@ -1,13 +1,24 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, inject, OnInit} from '@angular/core';
+import { GameService } from './services/game-service';
+import { Game } from './services/game.model';
+import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
+  imports: [
+    NgForOf
+  ],
   styleUrl: './app.component.less'
 })
-export class AppComponent {
-  title = 'Pixelbrain';
+export class AppComponent implements OnInit {
+  gameService = inject(GameService);
+  games: Game[] = [];
+
+  ngOnInit(): void {
+    this.gameService.getGames().then((data) => {
+      this.games = data;
+    });
+  }
 }
