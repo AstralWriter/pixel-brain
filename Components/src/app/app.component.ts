@@ -1,7 +1,7 @@
-import {Component, inject, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GameService } from './services/game-service';
 import { Game } from './services/game.model';
-import {NgForOf} from '@angular/common';
+import { NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +13,12 @@ import {NgForOf} from '@angular/common';
   styleUrl: './app.component.less'
 })
 export class AppComponent implements OnInit {
-  gameService = inject(GameService);
   games: Game[] = [];
 
+  constructor(private gameService: GameService) {}
+
   ngOnInit(): void {
-    this.gameService.getGames().then((data) => {
+    this.gameService.getGames().subscribe((data) => {
       this.games = data;
     });
   }

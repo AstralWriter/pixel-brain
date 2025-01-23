@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Game } from './game.model';
 import games from '../../assets/games/games.json';
 
@@ -6,11 +7,13 @@ import games from '../../assets/games/games.json';
   providedIn: 'root',
 })
 export class GameService {
-  getGames(): Promise<Game[]> {
-    return Promise.resolve(games.games);
+
+  getGames(): Observable<Game[]> {
+    return of(<Game[]> games.games);
   }
 
-  getGameById(id: number): Promise<Game | undefined> {
-    return Promise.resolve(games.games.find((game: Game) => game.id === id));
+  getGameById(id: number): Observable<Game | undefined> {
+    const game = games.games.find((g: Game) => g.id === id);
+    return of(<Game | undefined> game);
   }
 }
