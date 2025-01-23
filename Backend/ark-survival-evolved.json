@@ -1,0 +1,106 @@
+{
+  "name": "ARK Survival Evolved",
+  "description": "ARK: Survival Evolved ist ein Survival-Spiel von Studio Wildcard, in dem Spieler auf einer prähistorischen Insel ums Überleben kämpfen.\nSie sammeln Ressourcen, zähmen Dinosaurier, bauen Unterkünfte und verteidigen sich gegen feindliche Kreaturen und andere Spieler.",
+  "questions": [
+    {
+      "id": 1,
+      "question1": "Welcher Dinosaurier wird NACH dem zähmen erheblich schwächer?",
+      "answers":  [
+        { "text":  "Giganotosaurus", "correct":  true },
+        { "text":  "T-Rex", "correct":  false },
+        { "text":  "Trodon", "correct":  false },
+        { "text":  "Reaper", "correct":  false }
+      ]
+    },
+    {
+      "id": 2,
+      "question2": "Was ist die Schwerste Ressource in ARK? (1 stück der Ressource)",
+      "answers":  [
+        { "text":  "Schwarez Perle", "correct":  true },
+        { "text":  "Metal", "correct":  false },
+        { "text":  "Metall barren", "correct":  false },
+        { "text":  "Kristal", "correct":  false }
+      ]
+    },
+    {
+      "id": 3,
+      "question3": "Welcher Dinosaurier ist in ARK der am meisten gehaste von der Community?",
+      "answers":  [
+        { "text":  "Pegomastax", "correct":  true },
+        { "text":  "Ichthyornis", "correct":  false },
+        { "text":  "Noglin", "correct":  false },
+        { "text":  "Shadowmane", "correct":  false }
+      ]
+    },
+    {
+      "id": 4,
+      "question4": "Welcher Base spot ist in PvP auf der Karte Fjordur einer der Besten?\n(Namen die von der Community genutzt werden)",
+      "answers":  [
+        { "text":  "Upside down Cave", "correct":  true },
+        { "text":  "Spider cave", "correct":  false },
+        { "text":  "Wyvern Cave", "correct":  false },
+        { "text":  "Crouch Cave", "correct":  false }
+      ]
+      },
+    {
+      "id": 5,
+      "question5": "Was ist der höchste prozentuale Schadenswert den man auf einer Hergestellten Waffe mit einem Bauplan bekommen kann?",
+      "answers":  [
+        { "text":  "755,3%", "correct":  true },
+        { "text":  "512%", "correct":  false },
+        { "text":  "100%", "correct":  false },
+        { "text":  "555,5%", "correct":  false }
+      ]
+    },
+    {
+      "id": 6,
+      "question6": "Mit welchem Ausrüstungs gegenstand kann man einen kurzzeitigen glitch erzeugen mit dem man Unterwasser eine Schusswaffe abfeuern kann?",
+      "answers":  [
+        { "text":  "Tek Brustplatte", "correct":  true },
+        { "text":  "Tek Hose", "correct":  false },
+        { "text":  "Tek Handschuhe", "correct":  false },
+        { "text":  "Tek Helm", "correct":  false }
+      ]
+    },
+    {
+      "id": 7,
+      "question7": "Wie viele Dinosaurier habe einen Tek-Sattel den man ihnen Ausrüsten kann?",
+      "answers":  [
+        { "text":  "", "correct":  true },
+        { "text":  "", "correct":  false },
+        { "text":  "", "correct":  false },
+        { "text":  "", "correct":  false }
+      ]
+    },
+    {
+      "id": 8,
+      "question8": "Welcher Dino wurde in der Beta und in den frühen release Tagen für alles im PvP genutzt? (Schaden, Vitalität, Reisen, Packesel etc...)",
+      "answers":  [
+        { "text":  "7", "correct":  true },
+        { "text":  "3", "correct":  false },
+        { "text":  "6", "correct":  false },
+        { "text":  "5", "correct":  false }
+      ]
+    },
+    {
+      "id": 9,
+      "question9": "Mit welchem Dino ist es am effizentisten Silizium zu farmen?",
+      "answers":  [
+        { "text":  "Anglerfisch", "correct":  true },
+        { "text":  "Megalodon", "correct":  false },
+        { "text":  "Megachelon", "correct":  false },
+        { "text":  "Tusoteuthis", "correct":  false }
+      ]
+    },
+    {
+      "id": 10,
+      "question10": "Welcher Dino kann dich nicht von deinem Gezähmten besattelten Dino Entsatteln?",
+      "answers":  [
+        { "text":  "Stegosaurus", "correct":  true },
+        { "text":  "Kaprosuchus", "correct":  false },
+        { "text":  "Microraptor", "correct":  false },
+        { "text":  "Bloodstalker", "correct":  false }
+      ]
+    }
+  ]
+}
