@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pixle-brain": {
+    "pixel-brain": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,9 +17,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/pixle-brain",
-            "index": "src/index.html",
-            "browser": "src/main.ts",
+            "outputPath": "dist/pixel-brain",
+            "index": "Frontend/src/index.html",
+            "browser": "Frontend/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -32,10 +32,10 @@
               }
             ],
             "styles": [
-              "src/styles.less"
+              "Frontend/src/styles.less"
             ],
             "scripts": [],
-            "server": "src/main.server.ts",
+            "server": "Frontend/src/main.server.ts",
             "prerender": true,
             "ssr": {
               "entry": "server.ts"
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "pixle-brain:build:production"
+              "buildTarget": "pixel-brain:build:production"
             },
             "development": {
-              "buildTarget": "pixle-brain:build:development"
+              "buildTarget": "pixel-brain:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -96,7 +96,7 @@
               }
             ],
             "styles": [
-              "src/styles.less"
+              "Frontend/src/styles.less"
             ],
             "scripts": []
           }
