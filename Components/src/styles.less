@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: 'Inter';
+  src: url('/public/assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body, app-root {
+  height: 100%;
+  width: 100%
+}
+
+app-root {
+  display: block;
+}
+
+body {
+  @apply bg-gray-950 text-white;
+  font-family: Inter, sans-serif;
+}
+
+

@@ -1,18 +1,6 @@
-<main class="main">
-  <div class="content">
-    <div class="side">
-      <p>Congratulations! Your app is running. 🎉</p>
-    </div>
-    <div class="divider text-7xl" role="separator" aria-label="Divider">Hallo</div>
-    <div class="right-side">
-    </div>
-    <div>
-      <ul>
-        @for (game of games; track game){
-        <li>
-          <h2>{{ game.name }}</h2>
-        </li>}
-      </ul>
-    </div>
+<main class="game-overview flex justify-center items-center min-h-screen px-16 py-20">
+  <div class="flex flex-col gap-14">
+    <head-component/>
+    <game-component/>
   </div>
 </main>
