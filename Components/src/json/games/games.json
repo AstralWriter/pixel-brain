@@ -1,13 +1,15 @@
 {
   "games": [
     {
-    "id": 1,
-    "name": "Monster Hunter World",
+      "id": 1,
+      "name": "Monster Hunter World",
+      "logo": "assets/images/Monster-Hunter.png",
       "description": "Monster Hunter: World ist ein Action-Rollenspiel von Capcom und der fünfte Hauptteil der Monster-Hunter-Reihe.\nSpieler jagen riesige Kreaturen in einer offenen Welt, sammeln Ressourcen und verbessern ihre Ausrüstung, um sich immer stärkeren Herausforderungen zu stellen."
     },
     {
       "id": 2,
       "name": "ARK Survival Evolved",
+      "logo": "assets/images/ark-survival-evolved-logo.png",
       "description": "ARK: Survival Evolved ist ein Survival-Spiel von Studio Wildcard, in dem Spieler auf einer prähistorischen Insel ums Überleben kämpfen.\nSie sammeln Ressourcen, zähmen Dinosaurier, bauen Unterkünfte und verteidigen sich gegen feindliche Kreaturen und andere Spieler."
     }
   ]

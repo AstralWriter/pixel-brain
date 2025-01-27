@@ -1,0 +1,9 @@
+<ul class="block">
+  @for (game of games; track game) {
+    <li class="border flex py-[24px] px-[64px] gap-[15px]">
+      <img class="size-[120px]" [src]="game.logo">
+      <div class="h-max text-[28px]">{{ game.name }}</div>
+      <div class="text-gray-400">General Knowledge (10 Questions)</div>
+    </li>
+  }
+</ul>
