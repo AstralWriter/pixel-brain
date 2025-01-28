@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService } from './services/game-service';
-import { Game } from './services/game.model';
+import { GameService } from './core/services/game-service';
+import { Game } from './core/services/game.model';
 import { NgForOf } from '@angular/common';
-import {IntroComponent} from './intro/intro.component';
-import {GameListComponent} from './game-list/game-list.component';
+import {IntroComponent} from './view/intro/intro.component';
+import {GameListComponent} from './view/game-list/game-list.component';
+import {RouterLink, RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,9 @@ import {GameListComponent} from './game-list/game-list.component';
   imports: [
     NgForOf,
     IntroComponent,
-    GameListComponent
+    GameListComponent,
+    RouterLink,
+    RouterOutlet
   ],
   styleUrl: './app.component.less'
 })
