@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GameService } from './services/game-service';
 import { Game } from './services/game.model';
 import { NgForOf } from '@angular/common';
-import {HeadComponent} from './head/head.component';
-import {GameComponent} from './game/game.component';
+import {IntroComponent} from './intro/intro.component';
+import {GameListComponent} from './game-list/game-list.component';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +11,8 @@ import {GameComponent} from './game/game.component';
   templateUrl: './app.component.html',
   imports: [
     NgForOf,
-    HeadComponent,
-    GameComponent
+    IntroComponent,
+    GameListComponent
   ],
   styleUrl: './app.component.less'
 })

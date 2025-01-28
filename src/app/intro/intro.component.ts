@@ -1,13 +1,13 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'head-component',
+  selector: 'intro-component',
   standalone: true,
-  templateUrl: './head.component.html',
+  templateUrl: './intro.component.html',
   host: {
     class: 'flex flex-col gap-4',
   }
 })
-export class HeadComponent {
+export class IntroComponent {
 
 }
