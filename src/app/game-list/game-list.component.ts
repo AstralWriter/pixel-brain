@@ -3,12 +3,13 @@ import { Game } from '../services/game.model';
 import { GameService } from '../services/game-service';
 
 @Component({
-  selector: 'game-component',
-  templateUrl: 'game.component.html',
+  selector: 'game-list-component',
+  templateUrl: 'game-list.component.html',
   standalone: true,
+  styleUrl: './game-list.component.less',
 })
 
-export class GameComponent implements OnInit {
+export class GameListComponent implements OnInit {
   games: Game[] = [];
 
   constructor(private gameService: GameService) {
