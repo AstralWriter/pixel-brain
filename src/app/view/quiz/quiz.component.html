@@ -1,1 +1,24 @@
-<p>quiz works!</p>
+<button class="flex justify-left">Back to overview</button>
+<div class="quiz flex flex-col gap-14">
+  <div class="head">
+    <img class="size-[120px]" src="" alt="Bild">
+    <div class="">Monster Hunter World</div>
+    <div class="">General Knowledge (Counter der Fragen)</div>
+  </div>
+  <div class="fragen gap-8">Frage die gestellt wird</div>
+
+  <div class="antwort flex gap-8">
+    @for (item of item; track item) {
+      <div class="flex">
+        {{ item }}
+      </div>
+    }
+  </div>
+
+  <button>button</button>
+
+  <div>Your score: (value) Point</div>
+</div>
+
+
+
