@@ -1,24 +1,23 @@
-<button class="flex justify-left">Back to overview</button>
-<div class="quiz flex flex-col gap-14">
-  <div class="head">
-    <img class="size-[120px]" src="" alt="Bild">
-    <div class="">Monster Hunter World</div>
-    <div class="">General Knowledge (Counter der Fragen)</div>
+<div class="flex justify-center">
+  <button class="flex">Back to overview</button>
+  <div class="quiz flex flex-col gap-14 text-center items-center w-[860px]">
+    <div class="head">
+      <img class="size-[120px]" src="" alt="Bild">
+      <div class="">Monster Hunter World</div>
+      <div class="">General Knowledge (Counter der Fragen)</div>
+    </div>
+    <div class="fragen gap-8">Frage die gestellt wird</div>
+
+    <div class="flex md:flex-wrap max-md:flex-col">
+      @for (item of item; track item) {
+        <div class="w-[414px] p-4">{{ item }}</div>
+      }
+    </div>
+
+    <button>button</button>
+
+    <div>Your score: (value) Point</div>
   </div>
-  <div class="fragen gap-8">Frage die gestellt wird</div>
-
-  <div class="antwort flex gap-8">
-    @for (item of item; track item) {
-      <div class="flex">
-        {{ item }}
-      </div>
-    }
-  </div>
-
-  <button>button</button>
-
-  <div>Your score: (value) Point</div>
 </div>
-
 
 
