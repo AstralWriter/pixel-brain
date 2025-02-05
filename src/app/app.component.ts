@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
         if (url.startsWith('/quiz/')) {
           this.mainPaddingClass = 'px-10';
         } else {
-          this.mainPaddingClass = 'px-16 py-20 max-md:px-10 max-md:py-16';
+          this.mainPaddingClass = '';
         }
       }
     });
