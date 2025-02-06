@@ -20,7 +20,7 @@ const buttonClassVariants = cva(
 );
 
 @Directive({
-  selector: '[app-button]',
+  selector: '[pb-button]',
   standalone: true,
   host: {
     '[class]': '_computedClass()',
