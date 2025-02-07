@@ -1,23 +1,21 @@
-<div class="flex justify-center px-10">
-  <button pb-button>Back to overview</button>
-  <div class="quiz flex flex-col gap-14 text-center items-center w-[860px]">
-    <div class="head">
+<button routerLink="/home" pb-button class="m-6 absolute leading-8 text-[18px] font-semibold left-0">Back to overview</button>
+<div class="flex justify-center items-center px-10">
+  <div class="quiz flex flex-col gap-14 text-center items-center justify-center">
+    <div class="head flex flex-col gap-2 items-center">
       <img class="size-[120px]" src="" alt="Bild">
-      <div class="">Monster Hunter World</div>
-      <div class="">General Knowledge (Counter der Fragen)</div>
+      <div class="leading-8 text-[24px] font-black"> Fragestellung</div>
+      <div class="leading-8 text-[18px] font-semibold text-center text-gray-400">General Knowledge (Counter der Fragen)</div>
     </div>
-    <div class="fragen gap-8">Frage die gestellt wird</div>
+    <div class="gap-8 max-w-[860px] text-[24px] leading-10 font-semibold">Frage die gestellt wird</div>
 
-    <div class="flex md:flex-wrap max-md:flex-col">
+    <div class="flex md:flex-wrap max-md:flex-col justify-center max-w-[860px] gap-8">
       @for (item of item; track item) {
-        <div class="w-[414px] p-4">{{ item }}</div>
+        <pb-option class="w-[414px] h-[72px] p-4" question="Test" questionNumber="{{ item }}"/>
       }
     </div>
 
-    <button>button</button>
+    <button pb-button class="w-full leading-8 text-[18px] font-semibold text-center">Submit answer</button>
 
-    <div>Your score: (value) Point</div>
+    <div class="leading-8 text-[18px] font-semibold text-center text-gray-400">Your score: (value) Point</div>
   </div>
 </div>
-
-
