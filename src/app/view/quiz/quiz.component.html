@@ -2,15 +2,17 @@
 <div class="flex justify-center items-center px-10">
   <div class="quiz flex flex-col gap-14 text-center items-center justify-center">
     <div class="head flex flex-col gap-2 items-center">
-      <img class="size-[120px]" src="" alt="Bild">
-      <div class="leading-8 text-[24px] font-black"> Fragestellung</div>
-      <div class="leading-8 text-[18px] font-semibold text-center text-gray-400">General Knowledge (Counter der Fragen)</div>
+      <img class="size-[120px]" [src]="game?.logo">
+      <div class="leading-8 text-[24px] font-black"> {{ game?.name }}</div>
+      <div class="leading-8 text-[18px] font-semibold text-center text-gray-400">General Knowledge </div>
     </div>
-    <div class="gap-8 max-w-[860px] text-[24px] leading-10 font-semibold">Frage die gestellt wird</div>
+    @if(question.questions.length > 0) {
+     <div class="gap-8 max-w-[860px] text-[24px] leading-10 font-semibold">{{ arrayShuffle }}</div>
+    }
 
     <div class="flex md:flex-wrap max-md:flex-col justify-center max-w-[860px] gap-8">
-      @for (item of item; track item) {
-        <pb-option class="w-[414px] h-[72px] p-4" question="Test" questionNumber="{{ item }}"/>
+      @for (questionNumbering of numbering; track questionNumbering) {
+        <pb-option class="w-[414px] h-[72px] p-4" question="Test" [questionNumber]="questionNumbering"/>
       }
     </div>
 
