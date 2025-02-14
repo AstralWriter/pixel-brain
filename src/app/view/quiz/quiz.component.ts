@@ -43,9 +43,12 @@ export class QuizComponent {
         this.questions = data.questions;
       }
     });
+
+    this.arrayShuffle();
+    this.arrayShuffleText();
   }
 
-  private shuffleArray<T>(array: T[]): T[] {
+  public shuffleArray<A>(array: A[]): A[] {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
@@ -56,14 +59,18 @@ export class QuizComponent {
   public arrayShuffle() {
     if (this.questions?.length) {
       this.questions = this.shuffleArray([...this.questions]);
-      console.log(this.questions);
     }
+    console.log(this.questions);
   }
 
   public arrayShuffleText() {
-    if (this.questions?.[0]?.answers?.length) {
-      this.questions[0].answers = this.shuffleArray([...this.questions[0].answers]);
-      console.log(this.questions[0].answers);
+    if (this.questions?.length) {
+      this.questions.forEach(question => {
+        if (question.answers?.length) {
+          question.answers = this.shuffleArray([...question.answers]);
+        }
+      });
+      console.log(this.questions);
     }
   }
 
