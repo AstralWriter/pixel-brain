@@ -6,17 +6,17 @@
       <div class="leading-8 text-[24px] font-black"> {{ game?.name }}</div>
       <div class="leading-8 text-[18px] font-semibold text-center text-gray-400">General Knowledge </div>
     </div>
-    @if(question.questions.length > 0) {
-     <div class="gap-8 max-w-[860px] text-[24px] leading-10 font-semibold">{{ arrayShuffle }}</div>
+    @if(questions.length > 0) {
+     <div class="gap-8 max-w-[860px] text-[24px] leading-10 font-semibold">{{ questions[currentQuestion()].question }}</div>
     }
 
     <div class="flex md:flex-wrap max-md:flex-col justify-center max-w-[860px] gap-8">
-      @for (questionNumbering of numbering; track questionNumbering) {
-        <pb-option class="w-[414px] h-[72px] p-4" question="Test" [questionNumber]="questionNumbering"/>
+      @for (questionNumbering of numbering; track questionNumbering; let index = $index) {
+        <pb-option class="w-[414px] h-[72px] p-4" [question]="questions[currentQuestion()].answers[index].text" [questionNumber]="questionNumbering"/>
       }
     </div>
 
-    <button pb-button class="w-full leading-8 text-[18px] font-semibold text-center">Submit answer</button>
+    <button pb-button (click)="SubmitButton()" class="w-full leading-8 text-[18px] font-semibold text-center">Submit answer</button>
 
     <div class="leading-8 text-[18px] font-semibold text-center text-gray-400">Your score: (value) Point</div>
   </div>
