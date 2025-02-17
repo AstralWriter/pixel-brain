@@ -7,7 +7,7 @@ const buttonClassVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-gray-900 border-gray-800 hover:bg-gray-800 hover:border-gray-700 disabled:opacity-50',
+        default: 'bg-gray-900 border-gray-800 enabled:hover:bg-gray-800 enabled:hover:border-gray-700 disabled:opacity-50',
         cta: 'bg-white border-gray-100 text-gray-950 hover:bg-gray-300 hover:border-gray-400',
       },
     },

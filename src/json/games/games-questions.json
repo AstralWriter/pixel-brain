@@ -108,7 +108,7 @@
       "questions": [
         {
           "id": 1,
-          "question": "Welcher Dinosaurier wird NACH dem zähmen erheblich schwächer?",
+          "question": "Welcher Dinosaurier wird nach dem zähmen erheblich schwächer?",
           "answers":  [
             { "text":  "Giganotosaurus", "correct":  true },
             { "text":  "T-Rex", "correct":  false },

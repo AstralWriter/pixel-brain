@@ -1,23 +1,43 @@
+
 <button routerLink="/home" pb-button class="m-6 absolute leading-8 text-[18px] font-semibold left-0">Back to overview</button>
 <div class="flex justify-center items-center px-10">
-  <div class="quiz flex flex-col gap-14 text-center items-center justify-center">
+  <div class="quiz flex flex-col gap-14 text-center items-center justify-center max-w-[860px]">
     <div class="head flex flex-col gap-2 items-center">
       <img class="size-[120px]" [src]="game?.logo">
       <div class="leading-8 text-[24px] font-black"> {{ game?.name }}</div>
-      <div class="leading-8 text-[18px] font-semibold text-center text-gray-400">General Knowledge </div>
+      <div class="leading-8 text-[18px] font-semibold text-center text-gray-400">General Knowledge ({{ currentQuestion() + 1}}/10)</div>
     </div>
     @if(questions.length > 0) {
-     <div class="gap-8 max-w-[860px] text-[24px] leading-10 font-semibold">{{ questions[currentQuestion()].question }}</div>
+     <div class="gap-8 w-full text-[24px] leading-10 font-semibold">{{ questions[currentQuestion()].question }}</div>
     }
 
-    <div class="flex md:flex-wrap max-md:flex-col justify-center max-w-[860px] gap-8">
+    <div class="flex md:flex-wrap max-md:flex-col justify-center w-full gap-8">
       @for (questionNumbering of numbering; track questionNumbering; let index = $index) {
-        <pb-option class="w-[414px] h-[72px] p-4" [question]="questions[currentQuestion()].answers[index].text" [questionNumber]="questionNumbering"/>
+        <pb-option
+          class="w-[414px] h-[72px] p-4"
+          [question]="questions[currentQuestion()].answers[index].text"
+          [questionNumber]="questionNumbering"
+          [isSelected]="selectedAnswer() === index"
+          [isCorrect]="questions[currentQuestion()].answers[index].correct"
+          [isAnswerSubmitted]="isAnswerSubmitted()"
+          (click)="selectAnswer(index)"
+        />
       }
     </div>
 
-    <button pb-button (click)="SubmitButton()" class="w-full leading-8 text-[18px] font-semibold text-center">Submit answer</button>
+    @if (!isAnswerSubmitted()) {
+      <button pb-button (click)="submitAnswer()" class="w-full leading-8 text-[18px] font-semibold text-center" [disabled]="selectedAnswer() === null || isAnswerSubmitted()">Submit answer</button>
+    }
 
-    <div class="leading-8 text-[18px] font-semibold text-center text-gray-400">Your score: (value) Point</div>
+    @if (isAnswerSubmitted()) {
+      <button pb-button
+        variant="cta"
+        class="w-full leading-8 text-[18px] font-semibold text-center"
+        (click)="nextQuestion()">
+          Go to next Question
+      </button>
+    }
+
+    <div class="leading-8 text-[18px] font-semibold text-center text-gray-400">Your score: {{ score() }} Point</div>
   </div>
 </div>

@@ -16,7 +16,7 @@ import {Question} from '../../core/services/question.model';
     OptionComponent,
   ],
   host: {
-    class: 'h-full w-full flex justify-center',
+    class: 'min-h-screen w-full flex justify-center',
   },
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.less'
@@ -29,7 +29,12 @@ export class QuizComponent {
   questions: Question[] = [];
   game: Game | undefined = <Game | undefined>{};
   numbering = ["A", "B", "C", "D"];
+  score = signal(0);
+
   currentQuestion = signal(0);
+  selectedAnswer = signal<number | null>(null);
+  isAnswerCorrect = signal<boolean | null>(null);
+  isAnswerSubmitted = signal<boolean>(false);
 
   ngOnInit(): void {
     const gameId = Number(this.route.snapshot.paramMap.get('id'));
@@ -44,11 +49,11 @@ export class QuizComponent {
       }
     });
 
-    this.arrayShuffle();
-    this.arrayShuffleText();
+    this.arrayShuffleQuestions();
+    this.arrayShuffleAnswers();
   }
 
-  public shuffleArray<A>(array: A[]): A[] {
+  public shuffleArray<T>(array: T[]): T[] {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
@@ -56,25 +61,55 @@ export class QuizComponent {
     return array;
   }
 
-  public arrayShuffle() {
+  public arrayShuffleQuestions(): void {
     if (this.questions?.length) {
       this.questions = this.shuffleArray([...this.questions]);
     }
-    console.log(this.questions);
   }
 
-  public arrayShuffleText() {
+  public arrayShuffleAnswers(): void {
     if (this.questions?.length) {
       this.questions.forEach(question => {
         if (question.answers?.length) {
           question.answers = this.shuffleArray([...question.answers]);
         }
       });
-      console.log(this.questions);
     }
   }
 
-  public SubmitButton(): void {
+  public submitButton(): void {
     this.currentQuestion.set(this.currentQuestion() + 1);
+  }
+
+  selectAnswer(index: number) {
+    if (this.isAnswerSubmitted()) return;
+
+    this.selectedAnswer.set(index);
+  }
+
+  submitAnswer() {
+    if (this.selectedAnswer() === null) return;
+
+    const correctAnswer = this.questions[this.currentQuestion()].answers.find(a => a.correct);
+    const selectedAnswer = this.questions[this.currentQuestion()].answers[this.selectedAnswer()!];
+
+    const isCorrect = selectedAnswer === correctAnswer;
+    this.isAnswerCorrect.set(isCorrect);
+    this.isAnswerSubmitted.set(true);
+
+    if (isCorrect) {
+      this.score.set(this.score() + 1);
+    }
+  }
+
+  nextQuestion() {
+    if (this.currentQuestion() < this.questions.length - 1) {
+      this.currentQuestion.set(this.currentQuestion() + 1);
+      this.selectedAnswer.set(null);
+      this.isAnswerCorrect.set(null);
+      this.isAnswerSubmitted.set(false);
+    } else {
+      alert("Quiz beendet!");
+    }
   }
 }
