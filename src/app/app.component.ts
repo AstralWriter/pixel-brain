@@ -17,7 +17,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     GameListComponent,
     RouterLink,
     RouterOutlet,
-    NgClass
+    NgClass // ungenutzte imports
   ],
   styleUrl: './app.component.less'
 })

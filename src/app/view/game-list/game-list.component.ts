@@ -8,15 +8,15 @@ import {GameComponent} from '../../core/components/game/game.component';
   selector: 'game-list-component',
   templateUrl: 'game-list.component.html',
   standalone: true,
-  styleUrl: './game-list.component.less',
+  styleUrl: './game-list.component.less', // Less datei ist auch hier leer und kann weg
   imports: [
-    RouterLink,
+    RouterLink, // raus
     GameComponent
   ]
 })
 
 export class GameListComponent implements OnInit {
-  games: Game[] = [];
+  games: Game[] = []; // signal benutzen
   private gameService = inject(GameService);
 
   ngOnInit(): void {

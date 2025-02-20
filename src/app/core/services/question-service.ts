@@ -7,12 +7,13 @@ import gameQuestions from '../../../json/games/games-questions.json';
   providedIn: 'root',
 })
 export class QuestionService {
+  // raus
   // getQuestions(): Observable<GameQuestion[]> {
   //   return of(<GameQuestion[]> gameQuestion.gameQuestion);
   // }
   //
   getQuestionsByGameId(id: number): Observable<GameQuestion | undefined> {
-    const game = gameQuestions.gameQuestion.find((g) => g.id === id) as GameQuestion | undefined;
+    const game = gameQuestions.gameQuestion.find((g) => g.id === id) as GameQuestion | undefined; // Hier auch variablen bennenung und typisierung
     return of(game);
   }
 }

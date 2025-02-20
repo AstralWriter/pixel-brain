@@ -9,10 +9,10 @@ import {GameComponent} from '../../core/components/game/game.component';
   imports: [
     GameListComponent,
     IntroComponent,
-    GameComponent
+    GameComponent // raus und dran denken auch die imports immer zu löschen die nicht benutzt werden
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.less'
+  styleUrl: './home.component.less' // Leere less datei löschen
 })
 export class HomeComponent {
 

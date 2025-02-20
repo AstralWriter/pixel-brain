@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './not-found.component.html',
-  styleUrl: './not-found.component.less'
+  styleUrl: './not-found.component.less' // Unbenutzte bzw. leere Dateien löschen, die kannst du dann hier auch entfernen
 })
 export class NotFoundComponent {
 
