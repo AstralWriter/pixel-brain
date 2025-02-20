@@ -307,6 +307,106 @@
             { "text":  "Microraptor", "correct":  false },
             { "text":  "Bloodstalker", "correct":  false }
           ]
+        },
+        {
+          "id": 11,
+          "question": "Welches dieser Dinosaurier ist ein Fleischfresser?",
+          "answers": [
+            { "text": "Triceratops", "correct": false },
+            { "text": "Stegosaurus", "correct": false },
+            { "text": "Rex", "correct": true },
+            { "text": "Parasaur", "correct": false }
+          ]
+        },
+        {
+          "id": 12,
+          "question": "Wie kann man einen Dinosaurier in ARK zähmen?",
+          "answers": [
+            { "text": "Ihn mit einer Falle fangen", "correct": false },
+            { "text": "Ihn bewusstlos machen und füttern", "correct": true },
+            { "text": "Ihn streicheln, bis er zahm wird", "correct": false },
+            { "text": "Ihn mit einem Seil einfangen", "correct": false }
+          ]
+        },
+        {
+          "id": 13,
+          "question": "Welche Ressource bekommt man durch das Fällen von Bäumen?",
+          "answers": [
+            { "text": "Metall", "correct": false },
+            { "text": "Kristall", "correct": false },
+            { "text": "Holz", "correct": true },
+            { "text": "Öl", "correct": false }
+          ]
+        },
+        {
+          "id": 14,
+          "question": "Welche dieser Karten gehört NICHT zum offiziellen ARK DLC?",
+          "answers": [
+            { "text": "The Island", "correct": false },
+            { "text": "Scorched Earth", "correct": false },
+            { "text": "Genesis", "correct": false },
+            { "text": "Lost Valley", "correct": true }
+          ]
+        },
+        {
+          "id": 15,
+          "question": "Wie kann man in ARK schnell Wasser auffüllen?",
+          "answers": [
+            { "text": "Indem man in ein Gewässer springt", "correct": true },
+            { "text": "Indem man Beeren isst", "correct": false },
+            { "text": "Indem man einen Baum fällt", "correct": false },
+            { "text": "Indem man Fleisch isst", "correct": false }
+          ]
+        },
+        {
+          "id": 16,
+          "question": "Welches dieser Werkzeuge wird zum Ernten von Feuerstein genutzt?",
+          "answers": [
+            { "text": "Steinpicke", "correct": true },
+            { "text": "Steinaxt", "correct": false },
+            { "text": "Bogen", "correct": false },
+            { "text": "Speer", "correct": false }
+          ]
+        },
+        {
+          "id": 17,
+          "question": "Wie heißt der große Boss-Dinosaurier auf The Island?",
+          "answers": [
+            { "text": "Giga-Rex", "correct": false },
+            { "text": "Broodmother Lysrix", "correct": false },
+            { "text": "Dragon", "correct": false },
+            { "text": "Titanosaur", "correct": true }
+          ]
+        },
+        {
+          "id": 18,
+          "question": "Welches dieser Tiere kann man reiten, ohne einen Sattel zu benötigen?",
+          "answers": [
+            { "text": "Pteranodon", "correct": false },
+            { "text": "Equus", "correct": true },
+            { "text": "Stegosaurus", "correct": false },
+            { "text": "Triceratops", "correct": false }
+          ]
+        },
+        {
+          "id": 19,
+          "question": "Was ist die Umgebung auf Scorched Earth?",
+          "answers": [
+            { "text": "Der Dschungel", "correct": false },
+            { "text": "Das Gebirge", "correct": false },
+            { "text": "Die Wüste", "correct": true },
+            { "text": "Das Meer", "correct": false }
+          ]
+        },
+        {
+          "id": 20,
+          "question": "Welcher dieser Dinos kann fliegen?",
+          "answers": [
+            { "text": "Spinosaurus", "correct": false },
+            { "text": "Tyrannosaurus Rex", "correct": false },
+            { "text": "Argentavis", "correct": true },
+            { "text": "Basilisk", "correct": false }
+          ]
         }
       ]
     }
