@@ -1,10 +1,7 @@
-import {Component, inject, OnInit} from '@angular/core';
+import { Component, inject, OnInit} from '@angular/core';
 import { GameService } from './core/services/game-service';
 import { Game } from './core/services/game.model';
-import { NgClass, NgForOf } from '@angular/common';
-import { IntroComponent } from './view/intro/intro.component';
-import { GameListComponent } from './view/game-list/game-list.component';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 
 
 @Component({
@@ -12,12 +9,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   standalone: true,
   templateUrl: './app.component.html',
   imports: [
-    NgForOf,
-    IntroComponent,
-    GameListComponent,
-    RouterLink,
     RouterOutlet,
-    NgClass
   ],
   styleUrl: './app.component.less'
 })

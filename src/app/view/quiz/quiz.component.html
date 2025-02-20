@@ -9,48 +9,48 @@
   <div class="flex justify-center items-center px-10 w-full">
     <div class="flex flex-col md:gap-14 max-md:gap-10 text-center items-center justify-center max-w-[860px] w-full">
       <div class="head flex flex-col gap-2 items-center">
-        <img class="size-[120px]" [src]="game?.logo">
-        <div class="leading-8 text-[24px] font-black"> {{ game?.name }}</div>
-        <div class="leading-8 text-[18px] font-semibold text-center text-gray-400">General Knowledge ({{ currentQuestion() + 1}}/{{ questionCounter }})</div>
+        <img class="size-[120px]" [src]="game()?.logo">
+        <div class="leading-8 text-[24px] font-black"> {{ game()?.name }}</div>
+        <div class="leading-8 text-[18px] font-semibold text-center text-gray-400">General Knowledge ({{ currentQuestion() + 1}}/{{ questionCounter() }})</div>
       </div>
 
-      @if (quizState === "Quizzing") {
-
-        @if(questions.length > 0) {
-         <div class="gap-8 w-full text-[24px] leading-10 font-semibold">{{ questions[currentQuestion()].question }}</div>
-        }
-        <div class="flex max-md:flex-col flex-wrap justify-center w-full md:gap-8 max-md:gap-4">
-          @for (questionNumbering of numbering; track questionNumbering; let index = $index) {
-            <pb-option
-              class="flex-1 min-w-[328px] md:max-w-[414px] max-md:h-[64px] md:h-[72px] p-4 "
-              [question]="questions[currentQuestion()].answers[index].text"
-              [questionNumber]="questionNumbering"
-              [isSelected]="selectedAnswer() === index"
-              [isCorrect]="questions[currentQuestion()].answers[index].correct"
-              [isAnswerSubmitted]="isAnswerSubmitted()"
-              (click)="selectAnswer(index)"
-            />
+      @switch (quizState()) {
+        @case ("Quizzing") {
+          @if (questions().length > 0) {
+            <div class="gap-8 w-full text-[24px] leading-10 font-semibold">{{ questions()[currentQuestion()].question }}</div>
           }
-        </div>
-
-        @if (!isAnswerSubmitted()) {
-          <button pb-button (click)="submitAnswer()" class="w-full leading-8 text-[18px] font-semibold text-center" [disabled]="selectedAnswer() === null || isAnswerSubmitted()">Submit answer</button>
-        } @else {
-          <button pb-button (click)="nextQuestion()" variant="cta" class="w-full leading-8 text-[18px] font-semibold text-center">Go to next Question</button>
-        }
-        <div class="leading-8 text-[18px] font-semibold text-center text-gray-400">Your score: {{ score() }} Point</div>
-      }
-
-      @if (quizState === "Finish") {
-        <div class="flex flex-col p-10 max-w-[480px] w-full min-w-[320px] bg-gray-900 gap-1 rounded-lg justify-center">
-          <div class="font-semibold text-2xl leading-10">Your score</div>
-          <div class="leading-12">
-            <div class="font-black text-[40px] ">{{ score() }}/{{ questionCounter }} Points</div>
-            <div class="font-semibold text-[32px] text-gray-400">({{ score() / questionCounter * 100 }}%)</div>
+          <div class="flex max-md:flex-col flex-wrap justify-center w-full md:gap-8 max-md:gap-4">
+            @for (questionNumbering of numbering(); track questionNumbering; let index = $index) {
+              <pb-option
+                class="flex-1 min-w-[328px] md:max-w-[414px] max-md:h-[64px] md:h-[72px] p-4"
+                [question]="questions()[currentQuestion()].answers[index].text"
+                [questionNumber]="questionNumbering"
+                [isSelected]="selectedAnswer() === index"
+                [isCorrect]="questions()[currentQuestion()].answers[index].correct"
+                [isAnswerSubmitted]="isAnswerSubmitted()"
+                (click)="selectAnswer(index)"
+              />
+            }
           </div>
-        </div>
 
-        <button routerLink="/home" pb-button class="leading-8 text-[18px] font-semibold left-0">Back to overview</button>
+          @if (!isAnswerSubmitted()) {
+            <button pb-button (click)="submitAnswer()" class="w-full leading-8 text-[18px] font-semibold text-center" [disabled]="selectedAnswer() === null || isAnswerSubmitted()">Submit answer</button>
+          } @else {
+            <button pb-button (click)="nextQuestion()" variant="cta" class="w-full leading-8 text-[18px] font-semibold text-center">Go to next Question</button>
+          }
+            <div class="leading-8 text-[18px] font-semibold text-center text-gray-400">Your score: {{ score() }} Points</div>
+          }
+        @case ("Finish") {
+          <div class="flex flex-col p-10 max-w-[480px] w-full min-w-[320px] bg-gray-900 gap-1 rounded-lg justify-center">
+            <div class="font-semibold text-2xl leading-10">Your score</div>
+            <div class="leading-12">
+              <div class="font-black text-[40px]">{{ score() }}/{{ questionCounter() }} Points</div>
+              <div class="font-semibold text-[32px] text-gray-400">({{ (score() / questionCounter()) * 100 }}%)</div>
+            </div>
+          </div>
+
+          <button routerLink="/home" pb-button class="leading-8 text-[18px] font-semibold left-0">Back to overview</button>
+        }
       }
     </div>
   </div>

@@ -1,6 +1,7 @@
-import {Component, input } from '@angular/core';
+import {Component, input, signal} from '@angular/core';
 import {Game} from '../../services/game.model';
 import { RouterLink} from '@angular/router';
+import {sign} from 'node:crypto';
 
 @Component({
   selector: 'game-component',
@@ -9,8 +10,8 @@ import { RouterLink} from '@angular/router';
     RouterLink
   ],
   templateUrl: './game.component.html',
-  styleUrl: './game.component.less'
 })
 export class GameComponent {
   game = input<Game | undefined>();
+  questionCounter = signal(10);
 }

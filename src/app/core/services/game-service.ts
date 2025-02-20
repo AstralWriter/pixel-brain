@@ -12,7 +12,7 @@ export class GameService {
   }
 
   getGameById(id: number): Observable<Game | undefined> {
-    const game = games.games.find((g: Game) => g.id === id);
+    const game = games.games.find((game: Game) => game.id === id);
     return of(<Game | undefined> game);
   }
 }

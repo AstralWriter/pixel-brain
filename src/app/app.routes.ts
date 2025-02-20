@@ -5,5 +5,6 @@ export const routes: Routes = [
   { path: 'home', loadComponent: () => import('./view/home/home.component').then((c) => c. HomeComponent) },
   { path: 'quiz/:id', loadComponent: () => import('./view/quiz/quiz.component').then((c) => c. QuizComponent) },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: '**', loadComponent: () => import('./core/components/not-found/not-found.component').then((c) => c.NotFoundComponent) },
+  { path: '404', loadComponent: () => import('./core/components/not-found/not-found.component').then((c) => c.NotFoundComponent) },
+  { path: '**', redirectTo: '404' },
 ];

@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-10">
-  @for (game of games; track game) {
+  @for (game of games(); track game) {
       <game-component [game]="game"></game-component>
   }
 </div>

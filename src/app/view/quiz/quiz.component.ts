@@ -1,12 +1,13 @@
-import {Component, inject, signal} from '@angular/core';
-import {ActivatedRoute, RouterLink} from '@angular/router';
-import {PbButtonDirective} from '../../core/components/button/button.directive';
-import {OptionComponent} from '../../core/components/option/option.component';
-import {Game} from '../../core/services/game.model';
-import {GameService} from '../../core/services/game-service';
-import {QuestionService} from '../../core/services/question-service';
-import {Question} from '../../core/services/question.model';
-import {QuizEndComponent} from '../quiz-end/quiz-end.component';
+import {Component, inject, OnInit, signal} from '@angular/core';
+import {ActivatedRoute, Router, RouterLink,} from '@angular/router';
+import { PbButtonDirective } from '../../core/components/button/button.directive';
+import { OptionComponent } from '../../core/components/option/option.component';
+import { Game } from '../../core/services/game.model';
+import { GameService } from '../../core/services/game-service';
+import { QuestionService } from '../../core/services/question-service';
+import { Question } from '../../core/services/question.model';
+
+
 
 @Component({
   selector: 'quiz-component',
@@ -15,27 +16,25 @@ import {QuizEndComponent} from '../quiz-end/quiz-end.component';
     RouterLink,
     PbButtonDirective,
     OptionComponent,
-    QuizEndComponent,
   ],
   host: {
     class: 'min-h-screen w-full flex justify-center',
   },
   templateUrl: './quiz.component.html',
-  styleUrl: './quiz.component.less'
 })
-export class QuizComponent {
+export class QuizComponent implements OnInit{
   private gameService = inject(GameService);
   private questionService = inject(QuestionService);
   private route = inject(ActivatedRoute);
+  private router = inject(Router);
 
-  questions: Question[] = [];
-  game: Game | undefined = <Game | undefined>{};
-  numbering = ["A", "B", "C", "D"];
-  quizState = "Quizzing";
-  questionCounter = 10;
-
-  score = signal(0);
-  currentQuestion = signal(0);
+  questions = signal<Question[]>([]);
+  game = signal<Game | undefined>(undefined);
+  numbering = signal<["A", "B", "C", "D"]>(["A", "B", "C", "D"]);
+  quizState = signal<string>("Quizzing");
+  questionCounter = signal<number>(10);
+  score = signal<number>(0);
+  currentQuestion = signal<number>(0);
   selectedAnswer = signal<number | null>(null);
   isAnswerCorrect = signal<boolean | null>(null);
   isAnswerSubmitted = signal<boolean>(false);
@@ -43,18 +42,29 @@ export class QuizComponent {
   ngOnInit(): void {
     const gameId = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.gameService.getGameById(gameId).subscribe((data) => {
-      this.game = data;
-    });
-
-    this.questionService.getQuestionsByGameId(gameId).subscribe((data) => {
-      if (data) {
-        this.questions = data.questions;
+    this.gameService.getGameById(gameId).subscribe({
+      next: (data) => {
+        if (!data) {
+          this.router.navigate(['/404']);
+          return;
+        }
+        this.game.set(data);
       }
     });
 
-    this.arrayShuffleQuestions();
-    this.arrayShuffleAnswers();
+    this.questionService.getQuestionsByGameId(gameId).subscribe((data) => {
+      if (data?.questions?.length) {
+        const shuffledQuestions = this.shuffleArray([...data.questions]);
+
+        shuffledQuestions.forEach((question) => {
+          if (question.answers?.length) {
+            question.answers = this.shuffleArray([...question.answers]);
+          }
+        });
+
+        this.questions.set(shuffledQuestions);
+      }
+    });
   }
 
   public shuffleArray<T>(array: T[]): T[] {
@@ -62,27 +72,8 @@ export class QuizComponent {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
+
     return array;
-  }
-
-  public arrayShuffleQuestions(): void {
-    if (this.questions?.length) {
-      this.questions = this.shuffleArray([...this.questions]);
-    }
-  }
-
-  public arrayShuffleAnswers(): void {
-    if (this.questions?.length) {
-      this.questions.forEach(question => {
-        if (question.answers?.length) {
-          question.answers = this.shuffleArray([...question.answers]);
-        }
-      });
-    }
-  }
-
-  public submitButton(): void {
-    this.currentQuestion.set(this.currentQuestion() + 1);
   }
 
   public selectAnswer(index: number): void {
@@ -94,8 +85,8 @@ export class QuizComponent {
   public submitAnswer() {
     if (this.selectedAnswer() === null) return;
 
-    const correctAnswer = this.questions[this.currentQuestion()].answers.find(a => a.correct);
-    const selectedAnswer = this.questions[this.currentQuestion()].answers[this.selectedAnswer()!];
+    const correctAnswer = this.questions()[this.currentQuestion()].answers.find(answer => answer.correct);
+    const selectedAnswer = this.questions()[this.currentQuestion()].answers[this.selectedAnswer()!];
 
     const isCorrect = selectedAnswer === correctAnswer;
     this.isAnswerCorrect.set(isCorrect);
@@ -107,14 +98,14 @@ export class QuizComponent {
   }
 
   public nextQuestion(): void {
-    if (this.currentQuestion() + 1 < this.questionCounter ) {
+    if (this.currentQuestion() + 1 < this.questionCounter()) {
       this.currentQuestion.set(this.currentQuestion() + 1);
       this.selectedAnswer.set(null);
       this.isAnswerCorrect.set(null);
       this.isAnswerSubmitted.set(false);
-      this.quizState = "Quizzing";
+      this.quizState.set("Quizzing");
     } else {
-      this.quizState = "Finish";
+      this.quizState.set("Finish");
     }
   }
 }
