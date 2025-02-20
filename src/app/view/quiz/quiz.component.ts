@@ -6,6 +6,7 @@ import {Game} from '../../core/services/game.model';
 import {GameService} from '../../core/services/game-service';
 import {QuestionService} from '../../core/services/question-service';
 import {Question} from '../../core/services/question.model';
+import {QuizEndComponent} from '../quiz-end/quiz-end.component';
 
 @Component({
   selector: 'quiz-component',
@@ -14,6 +15,7 @@ import {Question} from '../../core/services/question.model';
     RouterLink,
     PbButtonDirective,
     OptionComponent,
+    QuizEndComponent,
   ],
   host: {
     class: 'min-h-screen w-full flex justify-center',
@@ -29,8 +31,10 @@ export class QuizComponent {
   questions: Question[] = [];
   game: Game | undefined = <Game | undefined>{};
   numbering = ["A", "B", "C", "D"];
-  score = signal(0);
+  quizState = "Quizzing";
+  questionCounter = 10;
 
+  score = signal(0);
   currentQuestion = signal(0);
   selectedAnswer = signal<number | null>(null);
   isAnswerCorrect = signal<boolean | null>(null);
@@ -81,13 +85,13 @@ export class QuizComponent {
     this.currentQuestion.set(this.currentQuestion() + 1);
   }
 
-  selectAnswer(index: number) {
+  public selectAnswer(index: number): void {
     if (this.isAnswerSubmitted()) return;
 
     this.selectedAnswer.set(index);
   }
 
-  submitAnswer() {
+  public submitAnswer() {
     if (this.selectedAnswer() === null) return;
 
     const correctAnswer = this.questions[this.currentQuestion()].answers.find(a => a.correct);
@@ -102,14 +106,15 @@ export class QuizComponent {
     }
   }
 
-  nextQuestion() {
-    if (this.currentQuestion() < this.questions.length - 1) {
+  public nextQuestion(): void {
+    if (this.currentQuestion() + 1 < this.questionCounter ) {
       this.currentQuestion.set(this.currentQuestion() + 1);
       this.selectedAnswer.set(null);
       this.isAnswerCorrect.set(null);
       this.isAnswerSubmitted.set(false);
+      this.quizState = "Quizzing";
     } else {
-      alert("Quiz beendet!");
+      this.quizState = "Finish";
     }
   }
 }

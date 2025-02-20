@@ -8,8 +8,10 @@ const optionVariant = cva(
     variants: {
       variant: {
         default: 'bg-gray-900 border-gray-800 hover:bg-gray-800 hover:border-gray-700 disabled:opacity-50',
+        defaultDisabled: 'bg-gray-900 border-gray-800 opacity-50',
         selected: 'bg-blue-800 border-blue-700',
-        correct: 'bg-green-800 border-green-700 disabled:opacity-50',
+        correct: 'bg-green-800 border-green-700',
+        correctDisabled: 'bg-green-800 border-green-700 opacity-50',
         incorrect: 'bg-red-800 border-red-700',
       },
     },
@@ -57,6 +59,6 @@ export class OptionComponent {
       return this.isCorrect() ? 'correct' : 'incorrect';
     }
 
-    return this.isCorrect() ? 'correct' : 'default';
+    return this.isCorrect() ? 'correctDisabled' : 'defaultDisabled';
   });
 }
