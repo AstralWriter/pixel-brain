@@ -21,7 +21,8 @@
             { "text":  "Schweres Bogengewehr", "correct":  false },
             { "text":  "Langschwert ", "correct":  false },
             { "text":  "Hammer", "correct":  false }
-          ]},
+          ]
+        },
         {
           "id": 3,
           "question": "Wie heißt der erste Drachenälteste den man besiegt?",
@@ -81,8 +82,8 @@
             { "text":  "Die 3 Flotte", "correct":  false },
             { "text":  "Die 4 Flotte", "correct":  false }
           ]
-        }
-      ,{
+        },
+        {
           "id": 9,
           "question": "Welche Waffe ist die Waffe mit den schwersten kombos und Tasten kombienationen?",
           "answers":  [
@@ -91,8 +92,8 @@
             { "text":  "Doppelklinge ", "correct":  false },
             { "text":  "Jagdhorn ", "correct":  false }
           ]
-        }
-      ,{
+        },
+        {
           "id": 10,
           "question": "Auf welche art kann man keinen Drachenälteste Besiegen?",
           "answers":  [
@@ -101,108 +102,109 @@
             { "text":  "Mit umgebungsschaden", "correct":  false },
             { "text":  "Man kann sie mit allem besiegen", "correct":  false }
           ]
-        }
-      ,{
+        },
+        {
           "id": 11,
-          "question": "11",
-          "answers":  [
-            { "text":  "TEST", "correct":  true },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false }
+          "question": "Wie heißt der erste große Monster-Drache, dem man in der Story begegnet?",
+          "answers": [
+            { "text": "Teostra", "correct": false },
+            { "text": "Kushala Daora", "correct": false },
+            { "text": "Zorah Magdaros", "correct": true },
+            { "text": "Nergigante", "correct": false }
           ]
-        }
-      ,{
+        },
+        {
           "id": 12,
-          "question": "12",
-          "answers":  [
-            { "text":  "TEST", "correct":  true },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false }
+          "question": "Welches Element hat das Monster Rathalos?",
+          "answers": [
+            { "text": "Wasser", "correct": false },
+            { "text": "Feuer", "correct": true },
+            { "text": "Eis", "correct": false },
+            { "text": "Donner", "correct": false }
           ]
-        }
-      ,{
+        },
+        {
           "id": 13,
-          "question": "13",
-          "answers":  [
-            { "text":  "TEST", "correct":  true },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false }
+          "question": "Was ist die Hauptaufgabe der Forschungskommission in der Neuen Welt?",
+          "answers": [
+            { "text": "Die Neue Welt zu erobern", "correct": false },
+            { "text": "Monster zu jagen und Rohstoffe zu sammeln", "correct": false },
+            { "text": "Die Migration der Drachen Ältesten zu erforschen", "correct": true },
+            { "text": "Einen neuen Monster-Zoo zu bauen", "correct": false }
           ]
-        }
-      ,{
+        },
+        {
           "id": 14,
-          "question": "14",
-          "answers":  [
-            { "text":  "TEST", "correct":  true },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false }
+          "question": "Welche dieser Waffen gibt es nicht in Monster Hunter: World?",
+          "answers": [
+            { "text": "Energieklinge", "correct": false },
+            { "text": "Langschwert", "correct": false },
+            { "text": "Doppelklingen", "correct": false },
+            { "text": "Schaufelschwert", "correct": true }
           ]
-        }
-      ,{
+        },
+        {
           "id": 15,
-          "question": "15",
-          "answers":  [
-            { "text":  "TEST", "correct":  true },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false }
+          "question": "Wie kann man die Luftangriffe von Bazelgeuse am besten vermeiden?",
+          "answers": [
+            { "text": "In Deckung gehen", "correct": false },
+            { "text": "Sich mit Wasser bespritzen", "correct": false },
+            { "text": "Mit Blitzbomben", "correct": true },
+            { "text": "Einfach wegrennen", "correct": false }
           ]
-        }
-      ,{
+        },
+        {
           "id": 16,
-          "question": "16",
-          "answers":  [
-            { "text":  "TEST", "correct":  true },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false }
+          "question": "Was passiert, wenn man dreimal in einer Quest besiegt wird?",
+          "answers": [
+            { "text": "Man erhält eine Bonusbelohnung", "correct": false },
+            { "text": "Die Quest ist gescheitert", "correct": true },
+            { "text": "Man bekommt einen stärkeren Buff", "correct": false },
+            { "text": "Die Monster werden schwächer", "correct": false }
           ]
-        }
-      ,{
+        },
+        {
           "id": 17,
-          "question": "17",
-          "answers":  [
-            { "text":  "TEST", "correct":  true },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false }
+          "question": "Welches dieser Monster gehört nicht zur Ältesten-Drachen-Klasse?",
+          "answers": [
+            { "text": "Kirin", "correct": false },
+            { "text": "Lunastra", "correct": false },
+            { "text": "Nergigante", "correct": false },
+            { "text": "Odogaron", "correct": true }
           ]
-        }
-      ,{
+        },
+        {
           "id": 18,
-          "question": "18",
-          "answers":  [
-            { "text":  "TEST", "correct":  true },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false }
+          "question": "Was ist das besondere an dem Monster Deviljho?",
+          "answers": [
+            { "text": "Es kann andere Monster fressen", "correct": true },
+            { "text": "Es lebt nur in Vulkan-Gebieten", "correct": false },
+            { "text": "Es ist unbesiegbar", "correct": false },
+            { "text": "Es hat keine Schwächen", "correct": false }
           ]
-        }
-      ,{
+        },
+        {
           "id": 19,
-          "question": "19",
-          "answers":  [
-            { "text":  "TEST", "correct":  true },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false }
+          "question": "Wie kann man ein Monster fangen?",
+          "answers": [
+            { "text": "Mit einer Blitzbombe und einer Fassbombe", "correct": false },
+            { "text": "Mit einer Falle und Beruhigungsbomben", "correct": true },
+            { "text": "Indem man es oft mit Pfeilen trifft", "correct": false },
+            { "text": "Durch den Einsatz von Ghillie-Mantel", "correct": false }
           ]
-        }
-      ,{
+        },
+        {
           "id": 20,
-          "question": "20",
+          "question": "Wie heißt die Erweiterung von Monster Hunter: World?",
           "answers":  [
-            { "text":  "TEST", "correct":  true },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false },
-            { "text":  "TEST", "correct":  false }
+            { "text":  "Iceborne", "correct":  true },
+            { "text":  "Frostborn", "correct":  false },
+            { "text":  "Frozen Wilds", "correct":  false },
+            { "text":  "Winter Hunt", "correct":  false }
           ]
         }
-      ]},
+      ]
+    },
     {
       "id": 2,
       "questions": [

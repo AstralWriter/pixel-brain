@@ -32,7 +32,7 @@
             />
           }
         </div>
-        
+
         @if (!isAnswerSubmitted()) {
           <button pb-button (click)="submitAnswer()" class="w-full leading-8 text-[18px] font-semibold text-center" [disabled]="selectedAnswer() === null || isAnswerSubmitted()">Submit answer</button>
         } @else {
