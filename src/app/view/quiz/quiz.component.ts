@@ -86,8 +86,8 @@ export class QuizComponent implements OnInit{
 
     const correctAnswer = this.questions()[this.currentQuestion()].answers.find(answer => answer.correct);
     const selectedAnswer = this.questions()[this.currentQuestion()].answers[this.selectedAnswer()!];
-
     const isCorrect = selectedAnswer === correctAnswer;
+
     this.isAnswerCorrect.set(isCorrect);
     this.isAnswerSubmitted.set(true);
 
