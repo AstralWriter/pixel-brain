@@ -6,8 +6,7 @@ import { Game } from '../../core/services/game.model';
 import { GameService } from '../../core/services/game-service';
 import { QuestionService } from '../../core/services/question-service';
 import { Question } from '../../core/services/question.model';
-
-
+import {State} from '../../core/services/state-enum';
 
 @Component({
   selector: 'quiz-component',
@@ -31,7 +30,7 @@ export class QuizComponent implements OnInit{
   questions = signal<Question[]>([]);
   game = signal<Game | undefined>(undefined);
   numbering = signal<["A", "B", "C", "D"]>(["A", "B", "C", "D"]);
-  quizState = signal<string>("Quizzing");
+  quizState = signal(State.Quizzing);
   questionCounter = signal<number>(10);
   score = signal<number>(0);
   currentQuestion = signal<number>(0);
@@ -103,9 +102,9 @@ export class QuizComponent implements OnInit{
       this.selectedAnswer.set(null);
       this.isAnswerCorrect.set(null);
       this.isAnswerSubmitted.set(false);
-      this.quizState.set("Quizzing");
+      this.quizState.set(State.Quizzing);
     } else {
-      this.quizState.set("Finish");
+      this.quizState.set(State.Finish);
     }
   }
 }

@@ -1,6 +1,7 @@
 import { Component, computed, input } from '@angular/core';
 import { cva, VariantProps } from "class-variance-authority";
 import { twMerge } from 'tailwind-merge';
+import {NgClass} from '@angular/common';
 
 const optionVariant = cva(
   'flex gap-4 rounded-lg justify-center items-center p-4 h-16 text-white font-size-[18px] font-semibold cursor-pointer border',
@@ -27,8 +28,16 @@ type OptionVariants = VariantProps<typeof optionVariant>;
   selector: 'pb-option',
   standalone: true,
   template: `
-    <button class="flex justify-between items-center w-full text-[18px] font-semibold" >
-      <div class="flex w-8 h-8 justify-center items-center bg-gray-600 rounded-full">
+    <button class="flex justify-between items-center w-full text-[18px] font-semibold">
+      <div
+        class="flex w-8 h-8 justify-center items-center rounded-full text-white font-bold"
+          [ngClass]="{
+            'bg-gray-600': variant() === 'default' || variant() === 'defaultDisabled',
+            'bg-blue-600': variant() === 'selected',
+            'bg-green-600': variant() === 'correct' || variant() === 'correctDisabled',
+            'bg-red-600': variant() === 'incorrect'
+         }"
+      >
         {{ questionNumber() }}
       </div>
       <div class="flex-1 flex justify-center items-center text-center">
@@ -39,6 +48,9 @@ type OptionVariants = VariantProps<typeof optionVariant>;
   host: {
     '[class]': '_computedClass()',
   },
+  imports: [
+    NgClass
+  ]
 })
 export class OptionComponent {
   public readonly userClass = input<string>('', { alias: 'class' });
