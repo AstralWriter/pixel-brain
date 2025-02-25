@@ -34,4 +34,3 @@ export class PbButtonDirective {
 
   readonly variant = input<ButtonVariants['variant']>('default');
 }
-

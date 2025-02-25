@@ -1,7 +1,12 @@
+// du verwendest keinerlei less features, ist jetzt nicht wild, aber du hättest auch einfach css wählen können
+// dann geht die compilation schneller und du sparst dir die dependencies zu less
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+// Cool dass du hier die Variable Font verwendest
+// aber du solltest die font dann auch "Inter Variable" nennen um naming probleme zu vermeiden, nur ne kleinigkeit
 @font-face {
   font-family: 'Inter';
   src: url('../public/assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
@@ -18,7 +23,19 @@ app-root {
 
 body {
   @apply bg-gray-950 text-white;
+  // in der tailwind.config.js kannst du die default tailwind properties definieren, wie bspw. auch die font-family
+  // tailwind hat im standard schon properties für font family - font-sans/font-serif/font-mono
+  // https://v3.tailwindcss.com/docs/font-family
+  // ebenfalls kann man custom values definieren.
+  //
+  // das heißt du könntest das hier machen:
+  // tailwind.config.js:
+  // theme: {
+  //   fontFamily: {
+  //     sans: ['Inter', 'sans-serif'], // oder besser 'Inter Variable' und dann oben in font face auch umnennen
+  //   },
+  // },
+  // und dann hier in der styles.less:
+  // @apply font-sans;
   font-family: 'Inter', sans-serif;
 }
-
-
