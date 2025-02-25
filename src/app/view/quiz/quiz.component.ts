@@ -1,12 +1,12 @@
-import {Component, inject, OnInit, signal} from '@angular/core';
-import {ActivatedRoute, Router, RouterLink,} from '@angular/router';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PbButtonDirective } from '../../core/components/button/button.directive';
 import { OptionComponent } from '../../core/components/option/option.component';
 import { Game } from '../../core/services/game.model';
 import { GameService } from '../../core/services/game-service';
 import { QuestionService } from '../../core/services/question-service';
-import {Answer, GameQuestion, Question} from '../../core/services/question.model';
-import {State} from '../../core/services/state-enum';
+import { Answer, GameQuestion, Question } from '../../core/services/question.model';
+import { State } from '../../core/services/state-enum';
 
 @Component({
   selector: 'quiz-component',
