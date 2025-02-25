@@ -1,9 +1,9 @@
 <div class="flex flex-col w-full">
   <div class="w-full h-[116px]">
     <button routerLink="/home" pb-button class="m-6 absolute leading-8 text-[18px] font-semibold left-0">
-    <span class="md:inline hidden">Back to overview</span>
-    <span class="md:hidden">Back</span>
-  </button>
+      <span class="md:inline hidden">Back to overview</span>
+      <span class="md:hidden">Back</span>
+    </button>
   </div>
 
   <div class="flex justify-center items-center px-10 w-full">
@@ -34,12 +34,19 @@
           </div>
 
           @if (!isAnswerSubmitted()) {
-            <button pb-button (click)="submitAnswer()" class="w-full leading-8 text-[18px] font-semibold text-center" [disabled]="selectedAnswer() === null || isAnswerSubmitted()">Submit answer</button>
+            <button
+              pb-button
+              (click)="submitAnswer()"
+              class="w-full leading-8 text-[18px] font-semibold text-center"
+              [disabled]="selectedAnswer() === null || isAnswerSubmitted()">
+              Submit answer
+            </button>
           } @else {
             <button pb-button (click)="nextQuestion()" variant="cta" class="w-full leading-8 text-[18px] font-semibold text-center">Go to next Question</button>
           }
             <div class="leading-8 text-[18px] font-semibold text-center text-gray-400">Your score: {{ score() }} Points</div>
           }
+
         @case ("Finish") {
           <div class="flex flex-col p-10 max-w-[480px] w-full min-w-[320px] bg-gray-900 gap-1 rounded-lg justify-center">
             <div class="font-semibold text-2xl leading-10">Your score</div>
@@ -48,7 +55,6 @@
               <div class="font-semibold text-[32px] text-gray-400">({{ (score() / questionCounter()) * 100 }}%)</div>
             </div>
           </div>
-
           <button routerLink="/home" pb-button class="leading-8 text-[18px] font-semibold left-0">Back to overview</button>
         }
       }

@@ -1,7 +1,7 @@
-import {Component, input, signal} from '@angular/core';
-import {Game} from '../../services/game.model';
-import { RouterLink} from '@angular/router';
-import {sign} from 'node:crypto';
+import { Component, input, signal } from '@angular/core';
+import { Game } from '../../services/game.model';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'game-component',

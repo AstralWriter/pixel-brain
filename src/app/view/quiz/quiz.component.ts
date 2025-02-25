@@ -5,7 +5,7 @@ import { OptionComponent } from '../../core/components/option/option.component';
 import { Game } from '../../core/services/game.model';
 import { GameService } from '../../core/services/game-service';
 import { QuestionService } from '../../core/services/question-service';
-import { Question } from '../../core/services/question.model';
+import {Answer, GameQuestion, Question} from '../../core/services/question.model';
 import {State} from '../../core/services/state-enum';
 
 @Component({
@@ -29,7 +29,7 @@ export class QuizComponent implements OnInit{
 
   questions = signal<Question[]>([]);
   game = signal<Game | undefined>(undefined);
-  numbering = signal<["A", "B", "C", "D"]>(["A", "B", "C", "D"]);
+  numbering = signal<['A', 'B', 'C', 'D']>(['A', 'B', 'C', 'D']);
   quizState = signal(State.Quizzing);
   questionCounter = signal<number>(10);
   score = signal<number>(0);
@@ -42,7 +42,7 @@ export class QuizComponent implements OnInit{
     const gameId = Number(this.route.snapshot.paramMap.get('id'));
 
     this.gameService.getGameById(gameId).subscribe({
-      next: (data) => {
+      next: (data: Game | undefined) => {
         if (!data) {
           this.router.navigate(['/404']);
           return;
@@ -51,16 +51,14 @@ export class QuizComponent implements OnInit{
       }
     });
 
-    this.questionService.getQuestionsByGameId(gameId).subscribe((data) => {
+    this.questionService.getQuestionsByGameId(gameId).subscribe((data: GameQuestion | undefined) => {
       if (data?.questions?.length) {
         const shuffledQuestions = this.shuffleArray([...data.questions]);
-
-        shuffledQuestions.forEach((question) => {
+        shuffledQuestions.forEach((question: Question) => {
           if (question.answers?.length) {
             question.answers = this.shuffleArray([...question.answers]);
           }
         });
-
         this.questions.set(shuffledQuestions);
       }
     });
@@ -71,26 +69,24 @@ export class QuizComponent implements OnInit{
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
-
     return array;
   }
 
   public selectAnswer(index: number): void {
     if (this.isAnswerSubmitted()) return;
-
     this.selectedAnswer.set(index);
   }
 
   public submitAnswer() {
     if (this.selectedAnswer() === null) return;
 
-    const correctAnswer = this.questions()[this.currentQuestion()].answers.find(answer => answer.correct);
-    const selectedAnswer = this.questions()[this.currentQuestion()].answers[this.selectedAnswer()!];
-    const isCorrect = selectedAnswer === correctAnswer;
+    const currentQuestion: Question = this.questions()[this.currentQuestion()];
+    const correctAnswer: Answer | undefined = currentQuestion.answers.find((answer: Answer) => answer.correct);
+    const selectedAnswer: Answer = currentQuestion.answers[this.selectedAnswer()!];
 
+    const isCorrect = selectedAnswer === correctAnswer;
     this.isAnswerCorrect.set(isCorrect);
     this.isAnswerSubmitted.set(true);
-
     if (isCorrect) {
       this.score.set(this.score() + 1);
     }

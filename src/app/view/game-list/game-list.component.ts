@@ -14,10 +14,11 @@ import { GameComponent } from '../../core/components/game/game.component';
 
 export class GameListComponent implements OnInit {
   games = signal<Game[]>([]);
+
   private gameService = inject(GameService);
 
   ngOnInit(): void {
-    this.gameService.getGames().subscribe((data) => {
+    this.gameService.getGames().subscribe((data: Game[]) => {
       this.games.set(data);
     });
   }

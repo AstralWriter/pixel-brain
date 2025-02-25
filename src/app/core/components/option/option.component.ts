@@ -1,7 +1,7 @@
 import { Component, computed, input } from '@angular/core';
-import { cva, VariantProps } from "class-variance-authority";
+import { cva, VariantProps } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
-import {NgClass} from '@angular/common';
+import { NgClass } from '@angular/common';
 
 const optionVariant = cva(
   'flex gap-4 rounded-lg justify-center items-center p-4 h-16 text-white font-size-[18px] font-semibold cursor-pointer border',

@@ -11,14 +11,13 @@ import { RouterOutlet } from '@angular/router';
   imports: [
     RouterOutlet,
   ],
-  styleUrl: './app.component.less'
 })
 export class AppComponent implements OnInit {
   games: Game[] = [];
   private gameService = inject(GameService);
 
   ngOnInit(): void {
-    this.gameService.getGames().subscribe((data) => {
+    this.gameService.getGames().subscribe((data: Game[]) => {
       this.games = data;
     });
   }
