@@ -30,6 +30,7 @@ export class QuizComponent implements OnInit{
 
   questions = signal<Question[]>([]);
   game = signal<Game | undefined>(undefined);
+  // überall single quotes verwenden in typescript anstelle von double quotes
   numbering = signal<["A", "B", "C", "D"]>(["A", "B", "C", "D"]);
   quizState = signal<string>("Quizzing");
   questionCounter = signal<number>(10);
@@ -43,6 +44,7 @@ export class QuizComponent implements OnInit{
     const gameId = Number(this.route.snapshot.paramMap.get('id'));
 
     this.gameService.getGameById(gameId).subscribe({
+      // typisierung
       next: (data) => {
         if (!data) {
           this.router.navigate(['/404']);
@@ -52,6 +54,7 @@ export class QuizComponent implements OnInit{
       }
     });
 
+    // typisierung
     this.questionService.getQuestionsByGameId(gameId).subscribe((data) => {
       if (data?.questions?.length) {
         const shuffledQuestions = this.shuffleArray([...data.questions]);
@@ -85,6 +88,7 @@ export class QuizComponent implements OnInit{
   public submitAnswer() {
     if (this.selectedAnswer() === null) return;
 
+    // typisierung
     const correctAnswer = this.questions()[this.currentQuestion()].answers.find(answer => answer.correct);
     const selectedAnswer = this.questions()[this.currentQuestion()].answers[this.selectedAnswer()!];
 

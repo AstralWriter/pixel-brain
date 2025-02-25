@@ -11,12 +11,13 @@ import { GameComponent } from '../../core/components/game/game.component';
     GameComponent
   ]
 })
-
 export class GameListComponent implements OnInit {
   games = signal<Game[]>([]);
+  // codestyle: injects oben in die klasse und alles andere darunter
   private gameService = inject(GameService);
 
   ngOnInit(): void {
+    // parameter typisierung e.g. data: Game[]
     this.gameService.getGames().subscribe((data) => {
       this.games.set(data);
     });

@@ -1,3 +1,4 @@
+// codestyle: whitespace bei den imports
 import {Component, input, signal} from '@angular/core';
 import {Game} from '../../services/game.model';
 import { RouterLink} from '@angular/router';

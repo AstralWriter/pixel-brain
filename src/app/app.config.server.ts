@@ -1,3 +1,4 @@
+// bräuchstest du ebenfalls nicht wenn du kein ssr machst
 import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
 import { provideServerRendering } from '@angular/platform-server';
 import { appConfig } from './app.config';

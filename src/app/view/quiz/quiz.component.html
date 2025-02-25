@@ -1,13 +1,18 @@
 <div class="flex flex-col w-full">
+  <!-- warum feste höhe h-[116px]? -->
   <div class="w-full h-[116px]">
     <button routerLink="/home" pb-button class="m-6 absolute leading-8 text-[18px] font-semibold left-0">
+    <!-- es wäre sauberer die buttons mit angular komplett auszublenden mit einem viewportobserver -->
+    <!-- mit deiner aktuellen lösung sind alle buttons durchgehend im DOM gerendert aber nur nicht sichtbar -->
     <span class="md:inline hidden">Back to overview</span>
     <span class="md:hidden">Back</span>
+    <!-- einrückung -->
   </button>
   </div>
 
   <div class="flex justify-center items-center px-10 w-full">
     <div class="flex flex-col md:gap-14 max-md:gap-10 text-center items-center justify-center max-w-[860px] w-full">
+      <!-- head? -->
       <div class="head flex flex-col gap-2 items-center">
         <img class="size-[120px]" [src]="game()?.logo">
         <div class="leading-8 text-[24px] font-black"> {{ game()?.name }}</div>
@@ -34,6 +39,8 @@
           </div>
 
           @if (!isAnswerSubmitted()) {
+            <!-- komische einrückung -->
+            <!-- lieber alle properties untereinander wenn der platz nicht reicht -->
             <button pb-button (click)="submitAnswer()" class="w-full leading-8 text-[18px] font-semibold text-center" [disabled]="selectedAnswer() === null || isAnswerSubmitted()">Submit answer</button>
           } @else {
             <button pb-button (click)="nextQuestion()" variant="cta" class="w-full leading-8 text-[18px] font-semibold text-center">Go to next Question</button>
