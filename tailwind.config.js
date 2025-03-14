@@ -7,6 +7,10 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+      },
+      cursor: {
+        'monster-hunter': 'url(/assets/images/cursor/Monster-Hunter-Cursor.cur), auto',
+        'monster-hunter-pointer': 'url(/assets/images/cursor/Monster-Hunter-Pointer.cur), auto'
       }
     },
   },

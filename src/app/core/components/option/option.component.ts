@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge';
 import { NgClass } from '@angular/common';
 
 const optionVariant = cva(
-  'flex gap-4 rounded-lg justify-center items-center p-4 h-16 text-white font-size-[18px] font-semibold cursor-pointer border',
+  'flex gap-4 rounded-lg justify-center items-center p-4 h-16 text-white font-size-[18px] font-semibold border',
   {
     variants: {
       variant: {

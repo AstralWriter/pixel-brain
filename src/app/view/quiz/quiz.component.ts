@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import {Component, computed, inject, OnInit, signal} from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PbButtonDirective } from '../../core/components/button/button.directive';
 import { OptionComponent } from '../../core/components/option/option.component';
@@ -18,6 +18,7 @@ import { State } from '../../core/services/state-enum';
   ],
   host: {
     class: 'min-h-screen w-full flex justify-center',
+    '[class]': 'cursorClass()'
   },
   templateUrl: './quiz.component.html',
 })
@@ -63,6 +64,15 @@ export class QuizComponent implements OnInit{
       }
     });
   }
+
+  cursorClass = computed(() => {
+    const gameId = this.game()?.id;
+    switch (gameId) {
+      case 1: return 'cursor-monster-hunter';
+      case 2: return 'cursor-ark-survival';
+      default: return 'cursor-default';
+    }
+  });
 
   public shuffleArray<T>(array: T[]): T[] {
     for (let i = array.length - 1; i > 0; i--) {

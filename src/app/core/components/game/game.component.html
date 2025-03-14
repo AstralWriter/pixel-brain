@@ -1,5 +1,5 @@
 @if (game() !== undefined) {
-<div [routerLink]="['/quiz', game()?.id]" class="game cursor-pointer border rounded-lg flex md:flex-row max-md:justify-center max-mad:text-center max-md:items-center max-md:w-auto max-md:h-auto max-md:flex-col max-md:p-10 py-6 px-16 gap-4 bg-gray-900 border-gray-800">
+<div [routerLink]="['/quiz', game()?.id]" class="border rounded-lg flex md:flex-row max-md:justify-center max-mad:text-center max-md:items-center max-md:w-auto max-md:h-auto max-md:flex-col max-md:p-10 py-6 px-16 gap-4 bg-gray-900 border-gray-800">
   <img class="size-[120px]" [src]="game()!.logo">
   <div class="flex flex-col justify-center leading-[32px] max-md:text-center">
     <div class="h-max text-[28px] max-md:text-[24px] max-md:text-center font-black">{{ game()!.name }}</div>
